@@ -4,6 +4,8 @@ Little fireworks program with C++, GLSL, and [Raylib](https://www.raylib.com/).
 
 [YouTube video link.](https://www.youtube.com/watch?v=rZRy8mt-JT0)
 
+![Screenshot](/screenshot000.png)
+
 ### Credits
 
 My code: MIT License. 
