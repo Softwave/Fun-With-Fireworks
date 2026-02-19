@@ -1,15 +1,13 @@
 # Fun with fireworks 
 
-Little fireworks program with C++, GLSL, and [Raylib](https://www.raylib.com/). 
+Little fireworks program with C++, GLSL, [Raylib](https://www.raylib.com/), and [ImGui](https://github.com/ocornut/imgui) + [rlImGui](https://github.com/raylib-extras/rlImGui). 
 
-[YouTube video link.](https://www.youtube.com/watch?v=rZRy8mt-JT0)
-
-![Screenshot](/screenshot000.png)
+Check out my [YouTube channel](https://www.youtube.com/@softwave1662), my [website](https://s0ftwave.net/), and my [itch.io](https://softwave.itch.io/) for more fun computer and programming stuff. :) 
 
 ### Credits
 
 My code: MIT License. 
 
-Single Firework.wav by morganpurkis -- https://freesound.org/s/394174/ -- License: [Creative Commons 0](https://creativecommons.org/publicdomain/zero/1.0/)
+Single Firework.wav by morganpurkis -- https://freesound.org/s/394174/ -- License: Creative Commons 0
 
-Edit Undo font by Brian Kent, license info in [editundo.txt](/editundo.txt). 
+Edit Undo font by Brian Kent, license info in editundo.txt. 
