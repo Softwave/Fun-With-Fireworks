@@ -2,6 +2,8 @@
 
 Little fireworks program with C++, GLSL, [Raylib](https://www.raylib.com/), and [ImGui](https://github.com/ocornut/imgui) + [rlImGui](https://github.com/raylib-extras/rlImGui). 
 
+A video of the program is [here](https://www.youtube.com/watch?v=M_VOo8U07sg).
+
 Check out my [YouTube channel](https://www.youtube.com/@softwave1662), my [website](https://s0ftwave.net/), and my [itch.io](https://softwave.itch.io/) for more fun computer and programming stuff. :) 
 
 ### Credits
