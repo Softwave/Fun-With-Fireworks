@@ -423,8 +423,9 @@ int main(void)
         ImGui::SliderFloat("Min Speed", &particleSystem.minSpeed, 0.0f, 1000.0f);
         ImGui::SliderFloat("Max Speed", &particleSystem.maxSpeed, 0.0f, 1000.0f);
         ImGui::SliderFloat("Min Lifetime", &particleSystem.minLifetime, 0.1f, 10.0f);
-        ImGui::SliderFloat("Max Lifetime", &particleSystem.maxLifetime, 0.1f, 10.0f);
-        
+        ImGui::SliderFloat("Max Lifetime", &particleSystem.maxLifetime, 0.1f,
+                           10.0f);
+
         //if (ImGui::SliderFloat("Min Size", &particleSystem.minSize, 0.1f, 50.0f))
         //    particleSystem.minSize = roundf(particleSystem.minSize * 10.0f) / 10.0f;
         //if (ImGui::SliderFloat("Max Size", &particleSystem.maxSize, 0.1f, 50.0f))

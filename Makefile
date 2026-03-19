@@ -1,7 +1,8 @@
 # Build for Linux
+VERSION = 0.2
 CXX = g++
 CXXFLAGS = -std=c++17 -Wall -Wextra -O2
-LDFLAGS = -lraylib -lGL -lm -lpthread -ldl -lrt -lX11
+LDFLAGS = -L./libs -lraylib -lGL -lm -lpthread -ldl -lrt -lX11 -Wl,-rpath,'$$ORIGIN/libs'
 
 # Build for Windows (from Linux!)
 WIN_CXX = x86_64-w64-mingw32-g++
@@ -48,11 +49,27 @@ run: $(TARGET)
 # Distribution packaging
 .PHONY: dist
 
-dist: FWorksFun FWorksFun.exe
+dist: $(TARGET) $(WIN_TARGET)
 	@echo "Publishing Linux build to bin/ and Windows build to winbin/"
-	mkdir -p bin winbin
-	cp fireworks_settings.ini FWorksFun glow.vs glow.fs LICENSE firework.wav imgui.ini editundo.ttf trails.ini README.md bin/
-	cp fireworks_settings.ini FWorksFun.exe glow.vs glow.fs LICENSE firework.wav imgui.ini editundo.ttf trails.ini README.md winbin/
+	# Create the full directory structure 
+	mkdir -p bin/libs winbin
+	
+	# Copy Linux binary and all assets 
+	cp $(TARGET) fireworks_settings.ini glow.vs glow.fs LICENSE firework.wav imgui.ini editundo.ttf trails.ini README.md bin/
+	
+	# Copy the specific Raylib shared library into the new libs folder 
+	cp /usr/lib64/libraylib.so.550 bin/libs/
+	
+	# Copy Windows binary and all assets 
+	cp $(WIN_TARGET) fireworks_settings.ini glow.vs glow.fs LICENSE firework.wav imgui.ini editundo.ttf trails.ini README.md winbin/
+
+zip: dist
+	@echo "Creating ZIP archives for version $(VERSION)..."
+	# Zip the Linux build (renaming the folder inside the zip for clarity)
+	zip -r FWorksFun_Linux_$(VERSION).zip bin/
+	# Zip the Windows build
+	zip -r FWorksFun_Windows_$(VERSION).zip winbin/
+	@echo "Done! Created FWorksFun_Linux_$(VERSION).zip and FWorksFun_Windows_$(VERSION).zip"
 
 help:
 	@echo "Available targets:"
@@ -63,4 +80,4 @@ help:
 	@echo "  dist     - Package builds for distribution"
 	@echo "  help     - Show this help"
 
-.PHONY: all windows clean run help
+.PHONY: all windows clean run help dist zip
