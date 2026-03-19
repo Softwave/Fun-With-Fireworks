@@ -1,5 +1,5 @@
 # Build for Linux
-VERSION = 0.2
+VERSION = 0.3
 CXX = g++
 CXXFLAGS = -std=c++17 -Wall -Wextra -O2
 LDFLAGS = -L./libs -lraylib -lGL -lm -lpthread -ldl -lrt -lX11 -Wl,-rpath,'$$ORIGIN/libs'
@@ -55,13 +55,13 @@ dist: $(TARGET) $(WIN_TARGET)
 	mkdir -p bin/libs winbin
 	
 	# Copy Linux binary and all assets 
-	cp $(TARGET) fireworks_settings.ini glow.vs glow.fs LICENSE firework.wav imgui.ini editundo.ttf trails.ini README.md bin/
+	cp $(TARGET) fireworks_settings.ini glow.vs glow.fs brightpass.fs blur.fs LICENSE firework.wav imgui.ini editundo.ttf trails.ini README.md bin/
 	
 	# Copy the specific Raylib shared library into the new libs folder 
 	cp /usr/lib64/libraylib.so.550 bin/libs/
 	
 	# Copy Windows binary and all assets 
-	cp $(WIN_TARGET) fireworks_settings.ini glow.vs glow.fs LICENSE firework.wav imgui.ini editundo.ttf trails.ini README.md winbin/
+	cp $(WIN_TARGET) fireworks_settings.ini glow.vs glow.fs brightpass.fs blur.fs LICENSE firework.wav imgui.ini editundo.ttf trails.ini README.md winbin/
 
 zip: dist
 	@echo "Creating ZIP archives for version $(VERSION)..."
